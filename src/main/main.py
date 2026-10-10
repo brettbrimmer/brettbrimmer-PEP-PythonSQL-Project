@@ -84,12 +84,19 @@ def load_and_clean_call_logs(file_path):
 
             row = [value.strip() for value in row]
 
+            has_empty_value = False
+
             for value in row:
                 if not value:
                     has_empty_value = True
                     break
 
-            cursor.execute("""INSERT INTO callLogs (phoneNumber, startTime, endTime, direction, userId) VALUES (?, ?, ?, ?, ?)""",row
+            if has_empty_value:
+                continue
+
+            cursor.execute("""INSERT INTO callLogs (phoneNumber, startTime, endTime, direction, userId) VALUES (?, ?, ?, ?, ?)""",row)
+
+        conn.commit()
 
 
 # This function will write analytics data to testUserAnalytics.csv - average call time, and number of calls per user.
