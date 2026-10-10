@@ -58,7 +58,7 @@ def load_and_clean_users(file_path):
         next(reader)
 
         for row in reader:
-            if(len(row)) ! 2:
+            if(len(row)) != 2:
                 continue
 
             first_name = row[0].strip()
