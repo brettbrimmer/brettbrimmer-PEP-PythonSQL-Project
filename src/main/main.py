@@ -67,7 +67,7 @@ def load_and_clean_users(file_path):
             if not first_name or not last_name:
                 continue
 
-            cursor.execute("INSERT INTO users (firstName, lastName) VALUES (?, ?)"), (first_name, last_name))
+            cursor.execute("INSERT INTO users (firstName, lastName) VALUES (?, ?)", (first_name, last_name))
 
     conn.commit()
 
