@@ -125,8 +125,8 @@ def write_ordered_calls(csv_file_path):
 
         writer.writerow(['callId', 'phoneNumber', 'startTime', 'endTime', 'direction', 'userId'])
 
-    for row in results:
-        writer.writerow(row)
+        for row in results:
+            writer.writerow(row)
 
 
 # No need to touch the functions below!------------------------------------------
